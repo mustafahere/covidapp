@@ -1,0 +1,34 @@
+.cconfirmed{
+    background-color: #fed7d7;
+}
+
+.crecovered{
+    background-color: #c6f6d5;
+}
+
+.cdeaths{
+    background-color: #e2e8f0;
+}
+
+.cglobal{
+    background-color: #dae9fd;
+}
+
+.numbers{
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.belowtxt{
+    background-color: #c7dfff;
+}
+.belowtxt2{
+    background-color: #99e2b0;
+}
+.belowtxt3{
+    background-color: #ffbebe;
+}
+.belowtxt4{
+    background-color: #d0d7e0;
+}
