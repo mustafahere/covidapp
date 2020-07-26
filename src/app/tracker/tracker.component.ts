@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetdataService} from '../getdata.service';
 
 @Component({
   selector: 'app-tracker',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tracker.component.css']
 })
 export class TrackerComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+   isLoader=true;
+  public tracker=[];
+  
+  countryss;
+  getcountry(name){
+   for(let j=0;j<this.tracker.length;j++){
+      if(this.tracker[j].country==name){
+         this.countryss=j;
+      }
+   }
   }
+  constructor(private trackdata: GetdataService) {}
+   ngOnInit() {
+      this.trackdata.getData().subscribe((data) => {
+         this.tracker = Array.from(Object.keys(data), k=>data[k]);
+         this.isLoader=false;
+      });
+   }
+
+   
 
 }

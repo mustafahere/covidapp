@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "CovidApp"
+    }
+  },
+  "defaultProject": "CovidApp",
+  "cli": {
+    "analytics": false
+  }
 }

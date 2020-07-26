@@ -5,7 +5,10 @@
             <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 ">
             <div class="d-flex flex-column mb-3 justify-content-center ">
                 <div class="p-2  cglobal">
-                    <p class="numbers text-center">15,153,211</p>
+                    <app-loader *ngIf="isLoader"></app-loader>
+                    <p class="numbers text-center" >
+                       {{tracker[0].cases | number}}
+                    </p>
                 </div>
                 <p class="text-center belowtxt p-2">Global</p>
               </div>         
@@ -13,7 +16,10 @@
             <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 ">
                 <div class="d-flex flex-column mb-3 justify-content-center ">
                     <div class="p-2  crecovered">
-                        <p class="numbers text-center">15,153,211</p>
+                        <app-loader *ngIf="isLoader"></app-loader>
+                        <p class="numbers text-center">
+                           {{tracker[0].recovered | number}}
+                        </p>
                     </div>
                     <p class="text-center belowtxt2 p-2">Recovered</p>
                   </div> 
@@ -21,7 +27,9 @@
             <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 ">
                 <div class="d-flex flex-column mb-3 justify-content-center ">
                     <div class="p-2  cconfirmed">
-                        <p class="numbers text-center">15,153,211</p>
+                        <app-loader *ngIf="isLoader"></app-loader>
+                        <p class="numbers text-center"> {{tracker[0].active | number}}
+                        </p>
                     </div>
                     <p class="text-center belowtxt3 p-2">Confirmed</p>
                   </div> 
@@ -29,11 +37,62 @@
             <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 ">
                 <div class="d-flex flex-column mb-3 justify-content-center ">
                     <div class="p-2 cdeaths">
-                        <p class="numbers text-center">15,153,211</p>
+                        <app-loader *ngIf="isLoader"></app-loader>
+                        <p class="numbers text-center">
+                            {{tracker[0].deaths | number}}
+                        </p>
                     </div>
                     <p class="text-center belowtxt4 p-2">Deaths</p>
                   </div> 
                </div>    
         
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12"><br><br>
+            <h3>Search Data By Country:</h3>
+            <form>
+                <div class="form-group">
+                    <select class="form-control" #c (change)="getcountry(c.value)" >
+                        <option selected="true" disabled>Please Select a Country</option>
+                        <option *ngFor="let item of tracker;let i=index">
+                            {{item.country}}
+                        </option>
+                    </select>
+                </div>
+                
+            </form>
+        </div>
+
+        <div class="col-lg-12" *ngIf="countryss" >
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Country</th>
+                    <th scope="col">Cases</th>
+                    <th scope="col">TodayCases</th>
+                    <th scope="col">Deaths</th>
+                    <th scope="col">Recovered</th>
+                    <th scope="col">Active</th>
+                    <th scope="col">Critical</th>
+                    <th scope="col">Total Test</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">{{tracker[countryss].country}}</th>
+                    <td>{{tracker[countryss].cases | number}} </td>
+                    <td>{{tracker[countryss].todayCases | number}} </td>
+                    <td>{{tracker[countryss].deaths | number}}</td>
+                    <td>{{tracker[countryss].recovered | number}}</td>
+                    <td>{{tracker[countryss].active | number}}</td>
+                    <td>{{tracker[countryss].critical | number}}</td>
+                    <td>{{tracker[countryss].totalTests | number}}</td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+            
+        </div>
     </div>
 </div>
