@@ -11,13 +11,15 @@ import {GetdataService} from './getdata.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoaderComponent } from './components/shared/loader/loader.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TrackerComponent,
     NavigationComponent,
-    LoaderComponent
+    LoaderComponent,
+
   ],
   imports: [
     BrowserModule,

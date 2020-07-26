@@ -36,6 +36,8 @@
     background-color: #d0d7e0;
     font-weight:550;
 }
+
+
 .table-fixed tbody {
     height: 190px;
     overflow-y: auto;
