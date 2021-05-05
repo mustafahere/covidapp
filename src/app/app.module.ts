@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {GetdataService} from './getdata.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoaderComponent } from './components/shared/loader/loader.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { LoaderComponent } from './components/shared/loader/loader.component';
     TrackerComponent,
     NavigationComponent,
     LoaderComponent,
+    FooterComponent,
 
   ],
   imports: [
